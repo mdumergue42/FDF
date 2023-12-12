@@ -6,21 +6,13 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:45:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/11 13:04:42 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:41:29 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <fcntl.h>
-#include "minilibx-linux/mlx.h"
-#include "GNL/get_next_line.h"
-#include "Printf/ft_printf.h"
-#include "Libft/libft.h"
-
+#include "fdf.h"
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 700
-
-
 
 
 int	main(void)
@@ -44,13 +36,13 @@ int		ft_count_line(int	fd)
 	char	*c;
 
 	i = 0;
-	cpt = 0;
+	cpt = 1;
 	while (c[0] && c[0] != '\n')
 	{
 		rd = read(fd, c, 1);
 		if (rd < 1)
 			break ;
-		if (c[0] == '\n' || (c[0] == '\n' && c[0] == '\0'))
+		if (c[0] == '\n')
 			cpt += 1;
 		i++;
 	}
@@ -62,25 +54,57 @@ char	**ft_read_map(char *fd, int size)
 	int 	file;
 	int		i;
 	int		rd;
-	char	**result;
+	char	**map;
 
 	file = open(fd, O_RDONLY);
 	size = ft_count_line(file);
-	result = malloc(sizeof(char) * size)
-	while (result != NULL && i <= INT_MAX)
+	map = malloc(sizeof(char) * size);
+	while (map != NULL && i <= INT_MAX)
 	{
-		result[i] = get_next_line(i);
+		map[i] = get_next_line(i);
 		i++;
 	}
 	close(i);
+	return (map);
 }
-char	**ft_split_line_map(char *line)
+char	**ft_parsing_map(char **map)
 {
-	char	*line;
+	int	i;
+	char	**temp;
+	t_map t;
 
-
+	i = 0;
+	while (map[i])
+	{
+		temp += ft_split(map, 32);
+		while (temp[i])
+		{
+			temp [i] = ft_atoi(map[i]);
+			i++;
+		}
+		i++;
+	}
+	return (map);
 }
 
-ft_split(result);
+char	ft_print_line(int x, int y)
+{
+	int	x1;
+	int	x2;
+	int	dx;
+	int	y1;
+	int	y2;
+	int	dy;
+	int	coef;
+	
+	while (x1 <= x2)
+	{
+		
+		mlx_pixel_put(x1, y1);
+
+	}
+}
+
+ft_split(map);
 ft_itoa(file);
 
