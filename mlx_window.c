@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:45:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/13 12:49:11 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:20:08 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,35 +75,35 @@ char	**ft_parsing_map(char **map)
 	parsed_map = ft_calloc(sizeof(char), i);
 	if (!parsed_map)
 		return (NULL);
-	ft_map_color(parsed_map, map);
+	ft_map_height_color(parsed_map, map);
 	return (parsed_map);
 }
 
-char	ft_map_height_color(t_map *parsed_map, char **map)
+t_map	**ft_map_height_color(t_map **parsed_map, char **map)
 {
-	while (parsed_map->y < map)
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	while (map[i])
 	{
-
+		j = 0;
+		while (map[i][j])
+		{
+			k = 0;
+			if (map[i][j] == ft_isdigit)
+			{
+				while (map[i][j] != ',')
+				{
+						
+				}
+			}
+		}
+		i++;
 	}
-	0x00FF0000;
-}
-
-char	ft_print_line(int x, int y)
-{
-	int	x1;
-	int	x2;
-	int	dx;
-	int	y1;
-	int	y2;
-	int	dy;
-	int	coef;
+	return (parsed_map);
 	
-	while (x1 <= x2)
-	{
-		
-		mlx_pixel_put(x1, y1);
-
-	}
 }
 
 int	main(void)
@@ -118,3 +118,25 @@ int	main(void)
     mlx_destroy_display(mlx_ptr);
     free(mlx_ptr);
 }
+
+
+
+
+dx = x1 - x0
+    dy = y1 - y0
+    xi = 1
+    if dx < 0
+        xi = -1
+        dx = -dx
+    end if
+    D = (2 * dx) - dy
+    x = x0
+
+    for y from y0 to y1
+        plot(x, y)
+        if D > 0
+            x = x + xi
+            D = D + (2 * (dx - dy))
+        else
+            D = D + 2*dx
+        end if
