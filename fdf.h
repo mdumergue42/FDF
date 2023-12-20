@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 06:33:23 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/18 16:56:25 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:13:52 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ typedef struct s_map
 	int	y;
 	int	color;
 }	t_map;
-
-typedef struct s_points
-{
-	float	x;
-	float	y;
-	float	z;
-}	t_points;
 
 typedef struct s_bresenham
 {
