@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:45:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/20 12:13:50 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:49:42 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 700
 
-int		ft_count_line(int	fd)
+int		ft_count_line(int fd)
 {
 	int		i;
 	int		rd;
@@ -66,22 +66,27 @@ int	ft_error(void)
 t_map	ft_height_color(char *map)
 {
 	int		z;
-	char	*temp;
 	t_map	parsed_map;
-	t_vars	vars;
 
-	map[z] = ft_calloc(sizeof(t_map), 1);
+	z = 0;
+	//parsed_map = ft_calloc(sizeof(t_map), 1);
+//	if (!parsed_map)
+//		return (NULL);ntm
+	parsed_map.y = ft_atoi(map);
+	while (map[z] && map[z] != ',')
+		z++;
+	z++;
 	while (map[z])
 	{
-		map[z] = ft_atoi(map);
-		while (map[z] != ',')
-		{
-			temp[z] = mlx_get_color_value(vars.mlx, parsed_map.color);
-		}
+		parsed_map.color = ft_atoi_base(&map[z + 2]);
 		z++;
 	}
-	
+	return (parsed_map);
 }
+//z+2 pour skip le 0x
+//ce qu'on envoie dans height color
+//10
+//10,0x00ff00
 
 t_map	**ft_lavoisier(char **map)
 {
@@ -141,16 +146,31 @@ int	ft_close(int keycode, t_vars *vars)
 
 int	main(void)
 {
-	t_vars	vars;
-
-	vars.mlx = mlx_init();	
 	
-	vars.win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FDF");
+	t_map	**tab;
+	int		x;
+	int		z;
+	//t_vars	vars;
+	//vars.mlx = mlx_init();	
 	
+	//vars.win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FDF");
+	tab = ft_parsing_map(tab);
+	z = 0;
+	while (tab[z])
+	{
+		x = 0;
+		while (tab[z][x])
+		{
+			ft_printf("%s, %d", tab[z][x].color);
+			x++;
+		}
+		z++;
+	}
+	return (tab);
 	//mlx_pixel_put(vars.mlx, vars.win, 10, 10, 0x00FFFFFF);
-	mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
-	mlx_loop(vars.mlx);
-	free(vars.mlx);
+	//mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
+	//mlx_loop(vars.mlx);
+	//free(vars.mlx);
 }
 
 

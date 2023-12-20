@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 06:33:23 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/20 12:13:52 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:14:38 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_bresenham
 }	t_bresenham;
 
 int		ft_count_line(int fd);
-char	**ft_read_map(char *fd, int size);
-char	**ft_parsing_map(char **map);
+char	**ft_read_map(char *fd);
+t_map	**ft_parsing_map(char *file_name);
 t_map	**ft_map_height_color(t_map **parsed_map, char **map);
 void	ft_print_line(t_vars vars, t_bresenham math);
 

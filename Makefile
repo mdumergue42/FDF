@@ -1,5 +1,5 @@
-SRCS =	mlx_window.c \
-		mlx_print_line.c \
+SRCS =	ft_window.c \
+		ft_print_line.c \
 		ft_printf.c \
 		get_next_line.c \
 		ft_atoi.c \
