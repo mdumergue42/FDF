@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:51:12 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/08 13:07:15 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:18:29 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Libft/libft.h"
 #include "get_next_line.h"
 
 char	ft_end_of_line(char *line, char *buffer)
