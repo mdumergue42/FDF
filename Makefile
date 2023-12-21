@@ -35,7 +35,8 @@ SRCS =	ft_window.c \
 		ft_memcpy.c \
 		ft_putstr_fd.c \
 		ft_strlcat.c \
-		ft_strrchr.c
+		ft_strrchr.c \
+		ft_atoi_base.c
        
 
 NAME    = fdf.a

@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 10:23:25 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/20 12:10:11 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/21 10:50:39 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,23 @@ int	ft_bresenham(t_vars vars, t_bresenham math)
 	mlx_pixel_put(vars.mlx, vars.win, math.x1, math.y1, map.color);
 	mlx_pixel_put(vars.mlx, vars.win, math.x2, math.y2, map.color);
 }
+
+
+/*dx = x1 - x0
+    dy = y1 - y0
+    xi = 1
+    if dx < 0
+        xi = -1
+        dx = -dx
+    end if
+    D = (2 * dx) - dy
+    x = x0
+
+    for y from y0 to y1
+        plot(x, y)
+        if D > 0
+            x = x + xi
+            D = D + (2 * (dx - dy))
+        else
+            D = D + 2*dx
+        end if*/

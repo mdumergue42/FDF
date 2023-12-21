@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:45:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/20 15:49:42 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:24:26 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	**ft_read_map(char *fd)
 	close(file);
 	file = open(fd, O_RDONLY);
 	map = malloc(sizeof(char) * size);
+	if (!map)
+		return (NULL);
 	while (map != NULL && i <= INT_MAX)
 	{
 		map[i] = get_next_line(i);
@@ -69,16 +71,18 @@ t_map	ft_height_color(char *map)
 	t_map	parsed_map;
 
 	z = 0;
-	//parsed_map = ft_calloc(sizeof(t_map), 1);
-//	if (!parsed_map)
-//		return (NULL);ntm
 	parsed_map.y = ft_atoi(map);
 	while (map[z] && map[z] != ',')
 		z++;
+	if (map[z] != ',')
+	{
+		parsed_map.color = ft_atoi_base(&map[z + 2], "0xFFFFFF");
+		z++;
+	}
 	z++;
 	while (map[z])
 	{
-		parsed_map.color = ft_atoi_base(&map[z + 2]);
+		parsed_map.color = ft_atoi_base(&map[z + 2], "0123456789ABCDEF");
 		z++;
 	}
 	return (parsed_map);
@@ -133,66 +137,3 @@ t_map	**ft_parsing_map(char *file_name)
 	if (*line == ' ' && *line + 1 == ' ')
 		return (NULL);
 }*/
-
-int	ft_close(int keycode, t_vars *vars)
-{
-	if (keycode == 65307)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		mlx_loop_end(vars->mlx);
-	}
-	return (0);
-}
-
-int	main(void)
-{
-	
-	t_map	**tab;
-	int		x;
-	int		z;
-	//t_vars	vars;
-	//vars.mlx = mlx_init();	
-	
-	//vars.win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FDF");
-	tab = ft_parsing_map(tab);
-	z = 0;
-	while (tab[z])
-	{
-		x = 0;
-		while (tab[z][x])
-		{
-			ft_printf("%s, %d", tab[z][x].color);
-			x++;
-		}
-		z++;
-	}
-	return (tab);
-	//mlx_pixel_put(vars.mlx, vars.win, 10, 10, 0x00FFFFFF);
-	//mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
-	//mlx_loop(vars.mlx);
-	//free(vars.mlx);
-}
-
-
-
-
-
-
-/*dx = x1 - x0
-    dy = y1 - y0
-    xi = 1
-    if dx < 0
-        xi = -1
-        dx = -dx
-    end if
-    D = (2 * dx) - dy
-    x = x0
-
-    for y from y0 to y1
-        plot(x, y)
-        if D > 0
-            x = x + xi
-            D = D + (2 * (dx - dy))
-        else
-            D = D + 2*dx
-        end if*/
