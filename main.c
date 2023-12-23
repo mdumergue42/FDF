@@ -6,11 +6,13 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:49:18 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/21 11:24:28 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:07:23 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+# define WINDOW_WIDTH 1000
+# define WINDOW_HEIGHT 700
 
 int	ft_close(int keycode, t_vars *vars)
 {
@@ -44,7 +46,7 @@ int	main(void)
 		}
 		z++;
 	}
-	return (tab);
+	return (0);
 	//mlx_pixel_put(vars.mlx, vars.win, 10, 10, 0x00FFFFFF);
 	//mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
 	//mlx_loop(vars.mlx);

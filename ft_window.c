@@ -6,13 +6,11 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:45:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/21 11:24:26 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/23 09:17:30 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-# define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 700
 
 int		ft_count_line(int fd)
 {

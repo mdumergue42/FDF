@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 10:23:25 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/21 10:50:39 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/23 09:51:53 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	ft_sign_of_increment(int x1, int x2, int y1, int y2)
 	}
 }
 
-int	ft_bresenham(t_vars vars, t_bresenham math)
+void	ft_bresenham(t_vars vars, t_bresenham math)
 {
 	t_map	map;
-	int	err;
-	int	i;
+	int		err;
+	int		i;
 
 	math.dx = abs(math.x2 - math.x1);
 	math.dy = abs(math.y2 - math.y1);
@@ -84,9 +84,40 @@ int	ft_bresenham(t_vars vars, t_bresenham math)
 			i++;
 		}
 	}
-	mlx_pixel_put(vars.mlx, vars.win, math.x1, math.y1, map.color);
-	mlx_pixel_put(vars.mlx, vars.win, math.x2, math.y2, map.color);
+	//mlx_pixel_put(vars.mlx, vars.win, math.x1, math.y1, map.color);
+	//mlx_pixel_put(vars.mlx, vars.win, math.x2, math.y2, map.color);
 }
+
+# define WINDOW_WIDTH 1000
+# define WINDOW_HEIGHT 700
+
+int	ft_close(int keycode, t_vars *vars)
+{
+	if (keycode == 65307)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_loop_end(vars->mlx);
+	}
+	return (0);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+	t_bresenham	math = {2, 20, 10, 70};
+
+	vars.mlx = mlx_init();	
+	vars.win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FDF");
+	mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
+	ft_bresenham(vars, math);
+	mlx_loop(vars.mlx);
+	free(vars.mlx);
+}
+
+
+
+
+
 
 
 /*dx = x1 - x0
