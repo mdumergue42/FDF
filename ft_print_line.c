@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 10:23:25 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/23 09:51:53 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:57:19 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,47 +45,47 @@ void	ft_bresenham(t_vars vars, t_bresenham math)
 	int		err;
 	int		i;
 
-	math.dx = abs(math.x2 - math.x1);
-	math.dy = abs(math.y2 - math.y1);
-	ft_sign_of_increment(math.x1, math.x2, math.y1, math.y2);
-	math.x = math.x1;
-	math.y = math.y1;
-	if (math.dx > math.dy)
+	dx = abs(x2 - x1);
+	dy = abs(y2 - y1);
+	ft_sign_of_increment(x1, x2, y1, y2);
+	x = x1;
+	y = y1;
+	if (dx > dy)
 	{
-		err = math.dx / 2;
+		err = dx / 2;
 		i = 0;
-		while (i < math.dx)
+		while (i < dx)
 		{
-			math.x += math.xi;
-			err += math.dy;
-			if (err > math.dx)
+			x += xi;
+			err += dy;
+			if (err > dx)
 			{
-				err -= math.dx;
-				math.y += math.yi;
+				err -= dx;
+				y += yi;
 			}
-			mlx_pixel_put(vars.mlx, vars.win, math.x, math.y, map.color);
+			mlx_pixel_put(vars.mlx, vars.win, x, y, map.color);
 			i++;
 		}
 	}
 	else
 	{
-		err = math.dy / 2;
+		err = dy / 2;
 		i = 0;
-		while (i < math.dy)
+		while (i < dy)
 		{
-			math.y += math.yi;
-			err += math.dx;
-			if (err > math.dy)
+			y += yi;
+			err += dx;
+			if (err > dy)
 			{
-				err -= math.dy;
-				math.x += math.xi;
+				err -= dy;
+				x += xi;
 			}
-			mlx_pixel_put(vars.mlx, vars.win, math.x, math.y, map.color);
+			mlx_pixel_put(vars.mlx, vars.win, x, y, map.color);
 			i++;
 		}
 	}
-	//mlx_pixel_put(vars.mlx, vars.win, math.x1, math.y1, map.color);
-	//mlx_pixel_put(vars.mlx, vars.win, math.x2, math.y2, map.color);
+	mlx_pixel_put(vars.mlx, vars.win, x1, y1, map.color);
+	mlx_pixel_put(vars.mlx, vars.win, x2, y2, map.color);
 }
 
 # define WINDOW_WIDTH 1000

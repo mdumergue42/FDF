@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 06:33:23 by madumerg          #+#    #+#             */
-/*   Updated: 2023/12/21 10:40:17 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:49:43 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_bresenham
 	int	y;
 	int	xi;
 	int	yi;
+	int m;
 }	t_bresenham;
 
 int		ft_count_line(int fd);
